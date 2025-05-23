@@ -1,8 +1,23 @@
-package org.example;
+package org.example.entity;
 
+import jakarta.persistence.*;
+
+/**
+ * Превращаю класс POJO в сущность с помощью аннотаций.
+ */
+
+@Entity
+@Table(name = "stuff")
 public class Stuff {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "officeID")
     private int officeID;
 
     public Stuff() {

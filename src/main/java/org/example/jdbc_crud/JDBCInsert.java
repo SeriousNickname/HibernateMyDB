@@ -1,4 +1,6 @@
-package org.example;
+package org.example.jdbc_crud;
+
+import org.example.entity.Stuff;
 
 import java.sql.*;
 
