@@ -14,7 +14,7 @@ public class Stuff {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false) // ограничение на null
     private String name;
 
     @Column(name = "officeID")
@@ -50,5 +50,14 @@ public class Stuff {
 
     public void setOfficeID(int officeID) {
         this.officeID = officeID;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee {" +
+                "id: " + id +
+                ", name: " + name +
+                ", officeId: " + officeID +
+                '}';
     }
 }
