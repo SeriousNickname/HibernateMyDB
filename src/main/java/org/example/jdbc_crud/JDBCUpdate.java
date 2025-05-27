@@ -1,29 +1,31 @@
-package org.example;
+package org.example.jdbc_crud;
+
+import org.example.entity.Stuff;
 
 import java.sql.*;
 import java.util.Scanner;
 
-public class JDBCDelete { private static final String DB_URL = "jdbc:mysql://localhost:3306/mydb";
+public class JDBCUpdate {
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/mydb";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
 
     public static void main(String[] args) {
 
         Connection connection;
+        Stuff employee = new Stuff("Vova", 5);
 
         try{
             connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter Name:");
+            System.out.println("Enter name:");
             String enteredName = scanner.nextLine();
 
-            try (PreparedStatement statement = connection.prepareStatement(
-                    "DELETE FROM stuff WHERE name = ?")) {    // удаляем сотрудника по имени
-                statement.setString(1, enteredName);
-                int deletedRows = statement.executeUpdate();
-                System.out.println("Deleted empolyees: " + deletedRows);
-            }
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE stuff SET officeId = 2 WHERE name = ?");
+            statement.setString(1, employee.getName());
+            statement.executeUpdate();
 
             connection.close();
             if(connection.isClosed() ) {
@@ -34,5 +36,7 @@ public class JDBCDelete { private static final String DB_URL = "jdbc:mysql://loc
             System.out.println("SQLException");
             e.printStackTrace();
         }
+
     }
+
 }
