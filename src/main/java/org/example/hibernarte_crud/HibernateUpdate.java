@@ -3,7 +3,6 @@ package org.example.hibernarte_crud;
 import jakarta.persistence.*;
 import org.example.entity.Stuff;
 
-
 public class HibernateUpdate {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate");
@@ -12,13 +11,14 @@ public class HibernateUpdate {
         /**
          * Создаю и открываю транзакцию. Через .find нахожу работника, меняю ему параметры и закрываю транзакцию.
          * */
+
         EntityTransaction transaction = entityManager.getTransaction();
         Stuff employee = null;
 
         try{
             transaction.begin();
             employee = entityManager.find(Stuff.class, 7); // нахожу работника в БД
-            employee.setOfficeID(4); // меняю работнику параметр
+            employee.setOfficeID(4L); // меняю работнику параметр
 
             transaction.commit();
         }
@@ -34,8 +34,6 @@ public class HibernateUpdate {
                 factory.close();
             }
         }
-        System.out.println(employee); // странный вывод в формате org.example.entity.Stuff@766b6d02
         System.out.println("Employee's id: " + employee.getId() + ", Name: " + employee.getName() + ", officeID: " + employee.getOfficeID());
-
     }
 }

@@ -2,7 +2,7 @@ package org.example.hibernarte_crud;
 
 import jakarta.persistence.*;
 import org.example.entity.Stuff;
-
+import org.example.entity.Stuff_info;
 
 public class HibernateInsert {
     public static void main(String[] args) {
@@ -12,13 +12,16 @@ public class HibernateInsert {
         /**
          * Создаю и открываю транзакцию. Создаю работника, через .persist вношу работника в БД, закрываю транзакцию.
          * */
+
         EntityTransaction transaction = entityManager.getTransaction();
-        Stuff employee = null;
 
         try{
             transaction.begin();
-            employee = new Stuff("Lena", 4); //создаю нового сотрудника
+            Stuff employee = new Stuff("Grisha", 2L); //создаю нового сотрудника
+            Stuff_info info = new Stuff_info("Grisha@mail.ru", "+7 987 237657623675");
             entityManager.persist(employee);
+            entityManager.persist(info);
+
             transaction.commit();
         } catch (Exception e){
             if(transaction!=null){
@@ -31,7 +34,5 @@ public class HibernateInsert {
                 factory.close();
             }
         }
-        System.out.println(employee);
-
     }
 }

@@ -2,28 +2,26 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
-/**
- * Превращаю класс POJO в сущность с помощью аннотаций.
- */
+/** Превращаю класс POJO в сущность с помощью аннотаций. */
 
 @Entity
 @Table(name = "stuff")
 public class Stuff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column()
     private Long id;
 
-    @Column(name = "name", nullable = false) // ограничение на null
+    @Column(nullable = false) // ограничение на null
     private String name;
 
-    @Column(name = "officeID")
-    private int officeID;
+    @Column()
+    private Long officeID;
 
     public Stuff() {
     }
 
-    public Stuff(String name, int officeID) {
+    public Stuff(String name, Long officeID) {
         this.name = name;
         this.officeID = officeID;
     }
@@ -44,11 +42,11 @@ public class Stuff {
         this.name = name;
     }
 
-    public int getOfficeID() {
+    public Long getOfficeID() {
         return officeID;
     }
 
-    public void setOfficeID(int officeID) {
+    public void setOfficeID(Long officeID) {
         this.officeID = officeID;
     }
 

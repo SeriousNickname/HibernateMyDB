@@ -3,7 +3,6 @@ package org.example.hibernarte_crud;
 import jakarta.persistence.*;
 import org.example.entity.Stuff;
 
-
 public class HibernateSelect {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate");
@@ -23,6 +22,5 @@ public class HibernateSelect {
             }
         }
         System.out.println(employee);
-
     }
 }

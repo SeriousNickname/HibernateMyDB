@@ -30,7 +30,7 @@ public class JDBCSelect {
                 Stuff resEmployee = new Stuff();
                 resEmployee.setId(resultSet.getLong("id")); // из ResultSet достаём все данные сотрудника, включая автоинициализируемое id
                 resEmployee.setName(resultSet.getString("name"));
-                resEmployee.setOfficeID(resultSet.getInt("officeID"));
+                resEmployee.setOfficeID((long) resultSet.getInt("officeID"));
                 System.out.println(resEmployee);
                 }
 

@@ -13,7 +13,7 @@ public class JDBCUpdate {
     public static void main(String[] args) {
 
         Connection connection;
-        Stuff employee = new Stuff("Vova", 5);
+        Stuff employee = new Stuff("Vova", 5L);
 
         try{
             connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);

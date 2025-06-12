@@ -12,6 +12,7 @@ public class HibernateDelete {
         /**
          * Создаю и открываю транзакцию. Через .find нахожу работника, через entityManager.remove удаляю его и закрываю транзакцию.
          * */
+
         EntityTransaction transaction = entityManager.getTransaction();
         Stuff employee = null;
 

@@ -12,7 +12,7 @@ public class JDBCInsert {
     public static void main(String[] args) {
 
         Connection connection;
-        Stuff employee = new Stuff("Vlad", 5);
+        Stuff employee = new Stuff("Vlad", 5L);
 
         try{
             connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -20,7 +20,7 @@ public class JDBCInsert {
                     "INSERT INTO stuff (name, officeID) VALUES (?, ?)"
             , Statement.RETURN_GENERATED_KEYS); // получаем генерируемое таблицей ключи
             statement.setString(1, employee.getName());
-            statement.setInt(2, employee.getOfficeID());
+            statement.setLong(2, employee.getOfficeID());
 
             int affectedRows = statement.executeUpdate();
             if(affectedRows == 0) {
