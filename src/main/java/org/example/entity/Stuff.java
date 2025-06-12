@@ -1,6 +1,12 @@
 package org.example.entity;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /** Превращаю класс POJO в сущность с помощью аннотаций. */
 
@@ -9,13 +15,13 @@ import jakarta.persistence.*;
 public class Stuff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column()
+    @Column
     private Long id;
 
-    @Column(nullable = false) // ограничение на null
+    @Column(nullable = false)
     private String name;
 
-    @Column()
+    @Column
     private Long officeID;
 
     public Stuff() {

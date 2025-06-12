@@ -17,7 +17,7 @@ public class HibernateUpdate {
 
         try{
             transaction.begin();
-            employee = entityManager.find(Stuff.class, 7); // нахожу работника в БД
+            employee = entityManager.find(Stuff.class, 1); // нахожу работника в БД
             employee.setOfficeID(4L); // меняю работнику параметр
 
             transaction.commit();
