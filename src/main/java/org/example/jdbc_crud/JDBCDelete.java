@@ -1,4 +1,4 @@
-package org.example;
+package org.example.jdbc_crud;
 
 import java.sql.*;
 import java.util.Scanner;

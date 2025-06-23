@@ -1,4 +1,6 @@
-package org.example;
+package org.example.jdbc_crud;
+
+import org.example.entity.Stuff;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -11,7 +13,7 @@ public class JDBCUpdate {
     public static void main(String[] args) {
 
         Connection connection;
-        Stuff employee = new Stuff("Vova", 5);
+        Stuff employee = new Stuff("Vova", 5L);
 
         try{
             connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);

@@ -1,4 +1,6 @@
-package org.example;
+package org.example.jdbc_crud;
+
+import org.example.entity.Stuff;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -28,9 +30,9 @@ public class JDBCSelect {
                 Stuff resEmployee = new Stuff();
                 resEmployee.setId(resultSet.getLong("id")); // из ResultSet достаём все данные сотрудника, включая автоинициализируемое id
                 resEmployee.setName(resultSet.getString("name"));
-                resEmployee.setOfficeID(resultSet.getInt("officeID"));
-                System.out.println("id: " + resEmployee.getId() + ", name: " + resEmployee.getName() + ", officeID: " + resEmployee.getOfficeID());
-            }
+                resEmployee.setOfficeID((long) resultSet.getInt("officeID"));
+                System.out.println(resEmployee);
+                }
 
             statement.close();
             resultSet.close();
